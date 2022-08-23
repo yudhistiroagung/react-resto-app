@@ -10,6 +10,9 @@ import {
   AiOutlineInfoCircle
 } from 'react-icons/ai';
 import {
+  GrFormNextLink
+} from 'react-icons/gr';
+import {
   MdLocationOn
 } from 'react-icons/md';
 import { RiArrowDropDownLine } from 'react-icons/ri'
@@ -18,7 +21,8 @@ import images from './assets';
 
 const heroImages = [
   'https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1447&q=80',
-  'https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80'
+  'https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80',
+  'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80'
 ];
 
 const benefits = [
@@ -49,7 +53,7 @@ const App = () => {
     <div className="container mx-auto px-2 py-4">
 
       {/** NAV BAR */}
-      <header className="sticky top-0 bg-[#FAFAFA] z-50 pb-4">
+      <header className="sticky top-0 bg-[#FAFAFA] z-50 py-4">
         <nav className="flex flex-row justify-between items-center">
 
           {/** Menus */}
@@ -126,13 +130,73 @@ const App = () => {
         <div className="flex flex-row space-x-2 mt-4">
           {benefits.map(({ icon, name, description }, index) => {
             return (
-              <div key={`${name}-${index}`} className="flex flex-col p-4 rounded-md text-center items-center bg-white">
-                <img className="w-10 h-10 my-4" src={icon} alt={name} />
-                <p className="text-sm text-medium">{name}</p>
-                <p className="text-[10px] font-light text-gray-400">{description}</p>
+              <div key={`${name}-${index}`} className="flex flex-col  rounded-md bg-white justify-between">
+                <div className="flex flex-col text-center items-center px-2">
+                  <img className="w-10 h-10 my-4" src={icon} alt={name} />
+                  <p className="text-sm text-medium">{name}</p>
+                  <p className="text-[10px] font-light text-gray-400">{description}</p>
+                </div>
+                <button className="mt-4 text-[10px] font-medium py-2 rounded-b-md hover:bg-orange-200">View Detail</button>
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/** FEATURED SECTION */}
+      <section className="flex flex-row items-center mt-8">
+
+        <div className="flex flex-col w-[35%] justify-start pr-6">
+          <p className="text-[10px] text-blue-500">TOP 3 FEATURED RESTAURANT</p>
+          <h1 className="py-2">Most Popular Restaurant</h1>
+
+          <p className="font-light text-[10px]">
+            The best restaurant in our opinion is how much customers like it in terms of place, price, comfort and of course the taste of
+            the food itself.
+          </p>
+
+          <button className="rounded-md py-1 px-2 mt-4 bg-orange-200">View All Retaurants</button>
+        </div>
+
+        <div className="flex flex-row flex-1 space-x-2 h-96">
+          <div className="relative flex-[4] items-center">
+            <img className="w-full h-full object-cover rounded-lg" src={heroImages[2]} alt="" />
+
+            <div className="absolute rounded-lg flex flex-col p-3 bg-white left-0 right-0 bottom-4 mx-4">
+
+              <div className="flex flex-row space-x-3 items-center">
+
+                <div className="flex flex-col">
+                  <div className="flex flex-row items-center">
+                    <AiFillStar size={12} color="orange" />
+                    <p className="text-[10px] font-thin ml-1">(7.2k+)</p>
+                  </div>
+
+                  <p className="text-[12px] font-medium">Bind Balorant</p>
+
+                  <div className="flex flex-row items-center space-x-1">
+                    <MdLocationOn size={12} />
+                    <p className="text-[10px] font-light">Bali, Jl. Perjuangan No.99</p>
+                  </div>
+                </div>
+
+                <div className="bg-orange-300 rounded p-1">
+                  <GrFormNextLink size={12} />
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <div className="flex-[2]">
+            <img className="w-full h-full object-cover rounded-lg" src={heroImages[1]} alt="" />
+          </div>
+
+          <div className="flex-[2]">
+            <img className="w-full h-full object-cover rounded-lg" src={heroImages[0]} alt="" />
+          </div>
+
         </div>
       </section>
 
