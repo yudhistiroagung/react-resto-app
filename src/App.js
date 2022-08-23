@@ -232,7 +232,7 @@ const App = () => {
             <h1 className="py-0">Restaurant Near You</h1>
           </div>
 
-          <div className="rounded flex flex-row items-center space-x-1 bg-gray-200 px-4 py-2">
+          <div className="rounded flex flex-row items-center space-x-1 bg-gray-100 px-4 py-2">
             <MdLocationOn size={12} color="#999999" />
             <p className="text-[10px] font-light text-gray-500">Bandung, Indonesia</p>
             <RiArrowDropDownLine size={20} color="#999999" />
