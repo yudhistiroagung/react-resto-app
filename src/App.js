@@ -46,7 +46,31 @@ const benefits = [
     name: 'Guaranteed Cleanliness',
     description: 'Get your special discount by using our reservation'
   },
-]
+];
+
+const nearRestos = [
+  {
+    image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1447&q=80',
+    name: 'Karnivor',
+    rating: '5.0',
+    totalRating: '7.2',
+    address: 'Jl Riau No 123 Bandung'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80',
+    name: 'Bebek Gahar',
+    rating: '5.0',
+    totalRating: '3.2',
+    address: 'Jl Pasirjati No 133 Bandung'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80',
+    name: 'Railway Coffe',
+    rating: '5.0',
+    totalRating: '4.2',
+    address: 'Jl Kebon Jati No 11 Bandung'
+  },
+];
 
 const App = () => {
   return (
@@ -136,7 +160,7 @@ const App = () => {
                   <p className="text-sm text-medium">{name}</p>
                   <p className="text-[10px] font-light text-gray-400">{description}</p>
                 </div>
-                <button className="mt-4 text-[10px] font-medium py-2 rounded-b-md hover:bg-orange-200">View Detail</button>
+                <button className="mt-4 text-[10px] font-medium py-2 rounded-b-md bg-gray-100 hover:bg-orange-200">View Detail</button>
               </div>
             );
           })}
@@ -159,17 +183,18 @@ const App = () => {
         </div>
 
         <div className="flex flex-row flex-1 space-x-2 h-96">
-          <div className="relative flex-[4] items-center">
+          <div className="relative flex-[4]">
             <img className="w-full h-full object-cover rounded-lg" src={heroImages[2]} alt="" />
 
             <div className="absolute rounded-lg flex flex-col p-3 bg-white left-0 right-0 bottom-4 mx-4">
 
-              <div className="flex flex-row space-x-3 items-center">
+              <div className="flex flex-row space-x-3 items-center justify-between">
 
                 <div className="flex flex-col">
-                  <div className="flex flex-row items-center">
+                  <div className="flex flex-row items-center space-x-1">
                     <AiFillStar size={12} color="orange" />
-                    <p className="text-[10px] font-thin ml-1">(7.2k+)</p>
+                    <p className="text-[10px] font-light">5.0</p>
+                    <p className="text-[10px] font-thin">(7.2k+)</p>
                   </div>
 
                   <p className="text-[12px] font-medium">Bind Balorant</p>
@@ -196,8 +221,61 @@ const App = () => {
           <div className="flex-[2]">
             <img className="w-full h-full object-cover rounded-lg" src={heroImages[0]} alt="" />
           </div>
-
         </div>
+      </section>
+
+      <section className="flex flex-col mt-8 space-y-4">
+
+        <div className="flex flex-row justify-between items-center">
+          <div className="flex flex-col">
+            <p className="text-[10px] text-blue-500">RESTAURANT BASED BY CITY</p>
+            <h1 className="py-0">Restaurant Near You</h1>
+          </div>
+
+          <div className="rounded flex flex-row items-center space-x-1 bg-gray-200 px-4 py-2">
+            <MdLocationOn size={12} color="#999999" />
+            <p className="text-[10px] font-light text-gray-500">Bandung, Indonesia</p>
+            <RiArrowDropDownLine size={20} color="#999999" />
+          </div>
+        </div>
+
+        <div className="flex flex-row space-x-2 h-64">
+          {nearRestos.map(({ image, name, rating, totalRating, address }, index) => {
+            return (
+              <div key={`${index}`} className="rounded-lg relative flex-1">
+                <img className="w-full h-full object-cover rounded-lg" src={image} alt="" />
+
+                <div className="absolute rounded-lg flex flex-col p-3 bg-white left-0 right-0 bottom-4 mx-4">
+
+                  <div className="flex flex-row space-x-3 items-center justify-between">
+
+                    <div className="flex flex-col">
+                      <div className="flex flex-row items-center space-x-1">
+                        <AiFillStar size={12} color="orange" />
+                        <p className="text-[10px] font-light">{rating}</p>
+                        <p className="text-[10px] font-thin">{`(${totalRating}+)`}</p>
+                      </div>
+
+                      <p className="text-[12px] font-medium">{name}</p>
+
+                      <div className="flex flex-row items-center space-x-1">
+                        <MdLocationOn size={12} />
+                        <p className="text-[10px] font-light">{address}</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-orange-300 rounded p-1">
+                      <GrFormNextLink size={12} />
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
       </section>
 
     </div>
