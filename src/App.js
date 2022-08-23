@@ -205,7 +205,7 @@ const App = () => {
                   </div>
                 </div>
 
-                <div className="bg-orange-300 rounded p-1">
+                <div className="bg-orange-200 rounded p-1">
                   <GrFormNextLink size={12} />
                 </div>
 
@@ -264,7 +264,7 @@ const App = () => {
                       </div>
                     </div>
 
-                    <div className="bg-orange-300 rounded p-1">
+                    <div className="bg-orange-200 rounded p-1">
                       <GrFormNextLink size={12} />
                     </div>
 
