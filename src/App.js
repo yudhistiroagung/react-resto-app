@@ -269,13 +269,40 @@ const App = () => {
                     </div>
 
                   </div>
-
                 </div>
               </div>
             );
           })}
         </div>
 
+      </section>
+
+      <section className="flex flex-row mt-8">
+        <div className="relative flex flex-1">
+
+          <div className="flex flex-col absolute right-0 top-2 rounded-lg bg-white p-4 items-center">
+            <img className="w-12 h-12 mb-1" src={images.experience} alt="" />
+            <h4>12 YEARS</h4>
+            <p className="text-black font-medium text-sm">Experiences</p>
+          </div>
+
+          <img className="w-full h-96 mx-6 object-cover rounded-lg" src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="" />
+
+          <div className="absolute left-0 bottom-4 flex flex-row p-4 bg-white rounded-lg space-x-2 items-center">
+            <img className="w-12 h-16 object-cover rounded-lg" src={heroImages[0]} alt="" />
+
+            <div className="flex flex-col">
+              <p className="text-gray-400 text-[10px]">Chef at Restaurant:</p>
+              <p className="text-[12px] font-medium">Juna Spike</p>
+
+              <a href="#" className="mt-1 text-[10px] font-medium py-1  text-orange-200">View Detail</a>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-1 flex-col">
+
+        </div>
       </section>
 
     </div>
