@@ -18,6 +18,7 @@ import {
 import { RiArrowDropDownLine } from 'react-icons/ri'
 
 import images from './assets';
+import { useMemo } from 'react';
 
 const heroImages = [
   'https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1447&q=80',
@@ -48,6 +49,8 @@ const benefits = [
   },
 ];
 
+const featuredChef = 'https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80';
+
 const nearRestos = [
   {
     image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1447&q=80',
@@ -72,7 +75,33 @@ const nearRestos = [
   },
 ];
 
+const chefs = [
+  {
+    speciality: 'PIZZA',
+    name: 'Phoenix Saethcup',
+    location: 'Jakarta, Indonesia'
+  },
+  {
+    speciality: 'PIZZA',
+    name: 'Phoenix Saethcup',
+    location: 'Jakarta, Indonesia'
+  },
+  {
+    speciality: 'PIZZA',
+    name: 'Phoenix Saethcup',
+    location: 'Jakarta, Indonesia'
+  },
+  {
+    speciality: 'PIZZA',
+    name: 'Phoenix Saethcup',
+    location: 'Jakarta, Indonesia'
+  },
+];
+
 const App = () => {
+
+  const divider = useMemo(() => <div className="h-5 w-full" />, []);
+
   return (
     <div className="container mx-auto px-2 py-4">
 
@@ -146,8 +175,10 @@ const App = () => {
 
       </section>
 
+      {divider}
+
       {/** BENEFITS SECTION */}
-      <section className="flex flex-col items-center my-4">
+      <section className="flex flex-col items-center my-8">
         <p className="text-blue-500 text-[10px]">SPECIAL BENEFITS FOR YOU</p>
         <h3 className="">Why Should Choose Us?</h3>
 
@@ -166,6 +197,8 @@ const App = () => {
           })}
         </div>
       </section>
+
+      {divider}
 
       {/** FEATURED SECTION */}
       <section className="flex flex-row items-center mt-8">
@@ -224,7 +257,10 @@ const App = () => {
         </div>
       </section>
 
-      <section className="flex flex-col mt-8 space-y-4">
+      {divider}
+
+      {/** NEARBY RESTO */}
+      <section className="flex flex-col mt-8 space-y-5">
 
         <div className="flex flex-row justify-between items-center">
           <div className="flex flex-col">
@@ -275,18 +311,22 @@ const App = () => {
           })}
         </div>
 
+        <button className="rounded-md self-center py-1 px-4 mt-8 bg-orange-200 hover:bg-orange-300">View All Retaurants</button>
       </section>
 
-      <section className="flex flex-row mt-8">
+      {divider}
+
+      <section className="flex flex-row mt-8 space-x-4">
+
         <div className="relative flex flex-1">
 
-          <div className="flex flex-col absolute right-0 top-2 rounded-lg bg-white p-4 items-center">
+          <div className="flex flex-col absolute right-0 top-4 rounded-lg bg-white p-4 items-center">
             <img className="w-12 h-12 mb-1" src={images.experience} alt="" />
             <h4>12 YEARS</h4>
             <p className="text-black font-medium text-sm">Experiences</p>
           </div>
 
-          <img className="w-full h-96 mx-6 object-cover rounded-lg" src="https://images.unsplash.com/photo-1581299894007-aaa50297cf16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="" />
+          <img className="w-[85%] object-cover rounded-lg" src={featuredChef} alt="" />
 
           <div className="absolute left-0 bottom-4 flex flex-row p-4 bg-white rounded-lg space-x-2 items-center">
             <img className="w-12 h-16 object-cover rounded-lg" src={heroImages[0]} alt="" />
@@ -300,7 +340,35 @@ const App = () => {
           </div>
         </div>
 
-        <div className="flex flex-1 flex-col">
+        <div className="flex flex-1 flex-col space-y-4">
+          <div>
+            <p className="text-[10px] text-blue-500">TOP 4 EXPERT CHEFS</p>
+            <h1 className="py-2">EXPERT CHEF IN FUDDY</h1>
+          </div>
+
+          <div className="flex flex-col space-y-1">
+            {chefs.map(({ speciality, name, location }) => {
+
+              return (
+                <div className="flex flex-row rounded-lg bg-white p-4 justify-between items-center">
+
+                  <div className="flex flex-col space-y-1">
+                    <p className="text-[10px] text-gray-400 font-medium">{speciality}</p>
+                    <h6>{name}</h6>
+                    <div className="flex flex-row items-center space-x-1">
+                      <MdLocationOn size={12} />
+                      <p className="text-[10px] font-light">{location}</p>
+                    </div>
+                  </div>
+
+                  <button className="rounded-md py-1 px-4 bg-orange-200 hover:bg-orange-300 text-[8px]">View Profile Details</button>
+
+                </div>
+              );
+            })}
+          </div>
+
+          <button className="rounded-md self-start py-1 px-4 bg-orange-200 hover:bg-orange-300">View All Chefs</button>
 
         </div>
       </section>
