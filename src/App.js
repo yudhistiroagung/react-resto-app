@@ -6,7 +6,6 @@ import {
 } from 'react-icons/fi';
 import {
   AiFillStar,
-  AiOutlineStar,
   AiOutlineInfoCircle
 } from 'react-icons/ai';
 import {
