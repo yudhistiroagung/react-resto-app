@@ -325,7 +325,7 @@ const App = () => {
             <p className="text-black font-medium text-sm">Experiences</p>
           </div>
 
-          <img className="w-[85%] object-cover rounded-lg" src={featuredChef} alt="" />
+          <img className="w-[85%] object-cover mx-auto rounded-lg" src={featuredChef} alt="" />
 
           <div className="absolute left-0 bottom-4 flex flex-row p-4 bg-white rounded-lg space-x-2 items-center">
             <img className="w-12 h-16 object-cover rounded-lg" src={heroImages[0]} alt="" />
